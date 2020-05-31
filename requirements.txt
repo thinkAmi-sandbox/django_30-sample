@@ -1,0 +1,8 @@
+Package    Version
+---------- -------
+asgiref    3.2.7  
+Django     3.0.6  
+pip        19.2.3 
+pytz       2020.1 
+setuptools 41.2.0 
+sqlparse   0.3.1  

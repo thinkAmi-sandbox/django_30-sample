@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+  <div>
+    <h3>index側で翻訳</h3>
+    <p>[Index - trans版]{% trans 'fuji' %}</p>
+
+    <hr>
+    {# 翻訳せずに渡す版 #}
+    <h3>そのまま</h3>
+    {% include 'translation/parts.html' with value='tsugaru' %}
+
+    <hr>
+    {# 翻訳して渡す版 #}
+    <h3>アンスコ使う</h3>
+    {% include 'translation/parts.html' with value=_('shinano-dolce') %}
+
+    <hr>
+
+    <h3>変数使う</h3>
+    {% trans 'akibae' as ringo %}
+    {% include 'translation/parts.html' with value=ringo %}
+
+
+    {# 翻訳して渡そうとしたけどエラーになる版 #}
+{#     TemplateSyntaxError at /en/translation#}
+{#      Could not parse the remainder: '{%' from '{%'#}
+{#     {% include 'translation/parts.html' with value={% trans 'hello' %} %}#}
+
+  </div>
+{% endblock %}
